@@ -32,13 +32,14 @@ class MemoryPool
 	public:
 		MemoryPool()
 		{
-			l_.push_back(Chunk());
+			Chunk chunk;
+			l_.push_back(chunk);
 		}	
 
 		~MemoryPool() {}
 	private:
 			typedef std::array<Object<T>, N> Chunk;
-			std::list<Object<T>> l_;
+			std::list<Chunk> l_;
 	private:
 			T* find(const Chunk& chunk)
 			{
